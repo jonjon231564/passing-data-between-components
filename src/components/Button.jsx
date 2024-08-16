@@ -1,8 +1,25 @@
-export default function Button({text = 'Click Me'}) {
+import React from "react"
+
+export default function Button({text, fontSize, color, backgroundColor}) {
+    
+    function handleButtonClick() {
+        window.location.href = "https://www.google.com"
+    }
+
     const buttonStyle = {
-        text: text
+        fontSize: fontSize + 'px',
+        color: color,
+        backgroundColor: backgroundColor
+
     }
     return (
-        <button>{text}</button>
+        <button onClick={handleButtonClick} style={buttonStyle}>{text}</button>
     )
+}
+
+Button.defaultProps = {
+    text: 'Click Me',
+    fontSize: 14,
+    color: 'white',
+    backgroundColor: 'blue'
 }
